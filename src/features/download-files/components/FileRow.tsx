@@ -9,7 +9,7 @@ type FileRowProps = {
 export default function FileRow({file}: FileRowProps) {
   return (
     <Fragment>
-      <tr>
+      <tr className={styles.row}>
         <td><input type="checkbox" /></td>
         <td>{file.name}</td>
         <td>{file.device}</td>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { File } from '../types/file'
 import FileRow from './FileRow'
+import styles from './DownloadFilesTable.module.css'
 
 type DownloadFilesTableProps = {
   fileList: File[]
@@ -9,10 +10,10 @@ type DownloadFilesTableProps = {
 export default function DownloadFilesTable(props: DownloadFilesTableProps) {
 
   return (
-    <table>
+    <table className={styles.table}>
       <thead>
         <tr>
-          <th>Selected</th>
+          <th></th>
           <th>Name</th>
           <th>Device</th>
           <th>Path</th>
