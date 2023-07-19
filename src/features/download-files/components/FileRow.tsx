@@ -14,7 +14,7 @@ export default function FileRow(props: FileRowProps) {
 
   return (
     <tr className={[isSelected && styles.rowSelected].join(' ')}>
-      <td><input type="checkbox" disabled={!isAvailable} checked={isSelected} onChange={() => handleOnChange(index)} /></td>
+      <td><input data-testid="rowCheckbox" type="checkbox" disabled={!isAvailable} checked={isSelected} onChange={() => handleOnChange(index)} /></td>
       <td>{file.name}</td>
       <td>{file.device}</td>
       <td>{file.path}</td>
