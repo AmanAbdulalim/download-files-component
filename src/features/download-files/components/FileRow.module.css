@@ -5,3 +5,7 @@
   border-radius: 50%;
   display: inline-block;
 }
+
+.rowSelected {
+  background-color: #eeeeee;
+}

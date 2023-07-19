@@ -8,5 +8,5 @@ export type File = {
   name: string;
   device: string;
   path: string;
-  status: string;
+  status: 'scheduled' | 'available';
 }
