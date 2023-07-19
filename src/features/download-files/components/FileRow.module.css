@@ -1,0 +1,7 @@
+.availableDot {
+  height: 15px;
+  width: 15px;
+  background-color: #82d033;
+  border-radius: 50%;
+  display: inline-block;
+}
