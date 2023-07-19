@@ -3,40 +3,58 @@ import { File, FileStatus } from '../types/file'
 import FileRow from './FileRow'
 import styles from './DownloadFilesTable.module.css'
 import SelectedCount from './SelectedCount'
+import DownloadButton from './DownloadButton'
 
 type DownloadFilesTableProps = {
   fileList: File[]
 }
 
 export default function DownloadFilesTable(props: DownloadFilesTableProps) {
-  const [selectedItems, setSelectedItems] = useState<boolean[]>(new Array(props.fileList.length).fill(false))
+  const [selectedIndexes, setSelectedIndexes] = useState<boolean[]>(new Array(props.fileList.length).fill(false))
   const availableCount = props.fileList.filter(file => file.status === FileStatus.AVAILABLE).length
-  const selectedCount = selectedItems.filter(item => item).length  
+  const selectedCount = selectedIndexes.filter(item => item).length  
 
   const handleOnChange = (index: number) => {
     const status = props.fileList[index].status
 
     if(status === FileStatus.AVAILABLE) {
-      setSelectedItems(selectedItems.splice(index, 1, !selectedItems[index]))
+      selectedIndexes.splice(index, 1, !selectedIndexes[index])
+      setSelectedIndexes([...selectedIndexes])
     }
   }
 
   const handleSelectAllChange = () => {
-    const tempSelectedItems = new Array(props.fileList.length).fill(false)
+    const tempSelectedIndexes = new Array(props.fileList.length).fill(false)
     
     if(selectedCount === availableCount) {
-      setSelectedItems(tempSelectedItems)
+      setSelectedIndexes(tempSelectedIndexes)
     } else {
       props.fileList.forEach((file, i) => {
-        if(file.status === FileStatus.AVAILABLE) { tempSelectedItems.splice(i, 1, true) }
+        if(file.status === FileStatus.AVAILABLE) { tempSelectedIndexes.splice(i, 1, true) }
       })
-      setSelectedItems(tempSelectedItems)
+      setSelectedIndexes([...tempSelectedIndexes])
     }
+  }
+
+  const getSelectedFiles = (): File[] => {
+    const selectedFiles: File[] = []
+    selectedIndexes.forEach((item, i) => {
+      if(item) {
+        selectedFiles.push(props.fileList[i])
+      }
+    })
+
+    return selectedFiles
   }
 
   return (
     <Fragment>
-      <SelectedCount count={selectedCount} handleOnChange={handleSelectAllChange}/>
+      <SelectedCount
+        selectedCount={selectedCount}
+        availableCount={availableCount}
+        handleOnChange={handleSelectAllChange}
+      />
+      <DownloadButton selectedFiles={getSelectedFiles()} />
       <table className={styles.table}>
         <thead>
           <tr>
@@ -50,7 +68,13 @@ export default function DownloadFilesTable(props: DownloadFilesTableProps) {
         </thead>
         <tbody>
           {props.fileList.map((file, i) => {
-            return (<FileRow key={i} index={i} file={file} handleOnChange={handleOnChange} isSelected={selectedItems[i]} />)
+            return (<FileRow 
+              key={i} 
+              index={i} 
+              file={file} 
+              handleOnChange={handleOnChange} 
+              isSelected={selectedIndexes[i]} 
+            />)
           })}
         </tbody>
       </table>
