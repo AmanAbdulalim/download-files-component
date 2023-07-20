@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react"
-import SelectedCount from "../SelectedCount"
+import SelectAll from "../SelectAll"
 
 describe('Checkbox state', () => {
   test('unchecked when no files are selected', () => {
     render(
-      <SelectedCount 
+      <SelectAll 
         selectedCount={0} 
         availableCount={2} 
         handleOnChange={() => {}} // not required for test
@@ -18,7 +18,7 @@ describe('Checkbox state', () => {
 
   test('indeterminate when some available files are selected', () => {
     render(
-      <SelectedCount 
+      <SelectAll 
         selectedCount={1} 
         availableCount={2} 
         handleOnChange={() => {}} 
@@ -32,7 +32,7 @@ describe('Checkbox state', () => {
 
   test('checked when all files are selected', () => {
     render(
-      <SelectedCount 
+      <SelectAll 
         selectedCount={2} 
         availableCount={2} 
         handleOnChange={() => {}} 

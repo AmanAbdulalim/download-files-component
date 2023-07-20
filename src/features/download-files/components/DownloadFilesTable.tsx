@@ -2,7 +2,7 @@ import {Fragment, useState} from 'react'
 import { File, FileStatus } from '../types/file'
 import FileRow from './FileRow'
 import styles from './DownloadFilesTable.module.css'
-import SelectedCount from './SelectedCount'
+import SelectAll from './SelectAll'
 import DownloadButton from './DownloadButton'
 
 type DownloadFilesTableProps = {
@@ -49,7 +49,7 @@ export default function DownloadFilesTable(props: DownloadFilesTableProps) {
 
   return (
     <Fragment>
-      <SelectedCount
+      <SelectAll
         selectedCount={selectedCount}
         availableCount={availableCount}
         handleOnChange={handleSelectAllChange}

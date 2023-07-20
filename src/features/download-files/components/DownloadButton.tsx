@@ -22,6 +22,7 @@ export default function DownloadButton(props: DownloadButtonProps): ReactElement
   return (
     <Fragment>
       <button
+        aria-label="download"
         data-testid="downloadButton"
         className={styles.button}
         disabled={isDisabled}

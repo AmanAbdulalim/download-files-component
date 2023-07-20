@@ -1,13 +1,13 @@
 import { ReactElement, useEffect, useRef } from "react"
-import styles from './SelectedCount.module.css'
+import styles from './SelectAll.module.css'
 
-type SelectedCountProps = {
+type SelectAllProps = {
   selectedCount: number;
   availableCount: number;
   handleOnChange: () => void;
 }
 
-export default function SelectedCount(props: SelectedCountProps): ReactElement {
+export default function SelectAll(props: SelectAllProps): ReactElement {
   const checkboxRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
@@ -32,12 +32,15 @@ export default function SelectedCount(props: SelectedCountProps): ReactElement {
     <span className={styles.container}>
       <input
         ref={checkboxRef}
-        data-testid="selectAllCheckbox" 
+        aria-label="select all"
+        data-testid="selectAllCheckbox"
+        id="selectAllCheckbox"
         className={styles.checkbox}
         type="checkbox"
         onChange={props.handleOnChange}
+        name="selectAll"
       />
-      <span>Selected {props.selectedCount}</span>
+      <label htmlFor="selectAllCheckbox">Selected {props.selectedCount}</label>
     </span>
   )
 }
