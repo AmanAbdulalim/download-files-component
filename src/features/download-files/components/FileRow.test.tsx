@@ -1,6 +1,6 @@
 import {render, screen} from "@testing-library/react"
-import { File } from "../../types/file"
-import FileRow from "../FileRow"
+import { File } from "../types/file"
+import FileRow from "./FileRow"
 
 // Fixes warning about <tr> not being in <tbody>
 const TableWrapper = (fileData: File, isSelected = false) => {

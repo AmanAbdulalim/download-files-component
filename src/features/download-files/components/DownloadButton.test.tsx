@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react"
-import DownloadButton, {formatAlertText} from "../DownloadButton"
-import { File } from "../../types/file"
+import DownloadButton, {formatAlertText} from "./DownloadButton"
+import { File } from "../types/file"
 
 describe('Button availability', () => {
   test('Download button disabled when no files selected', () => {

@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react"
-import SelectAll from "../SelectAll"
+import SelectAll from "./SelectAll"
 
 describe('Checkbox state', () => {
   test('unchecked when no files are selected', () => {

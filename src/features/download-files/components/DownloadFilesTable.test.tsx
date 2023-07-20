@@ -1,8 +1,8 @@
 import {act, render, screen} from '@testing-library/react'
-import DownloadFilesTable from '../DownloadFilesTable'
-import { File } from '../../types/file'
+import DownloadFilesTable from './DownloadFilesTable'
+import { File } from '../types/file'
 
-test('renders rows of mock data', () => {
+test('renders rows of mock data @integration', () => {
   const mockData: File[] = [
     {name: 'firstfile.txt', device: 'Mac', path: '/Users/username/Downloads', status: 'available'},
     {name: 'secondfile.txt', device: 'PC', path: '/Users/username/Documents', status: 'scheduled'},
@@ -15,7 +15,7 @@ test('renders rows of mock data', () => {
   expect(secondFile).toBeInTheDocument()
 })
 
-describe('Select all', () => {
+describe('Select all @integration', () => {
   test('toggles files from selected to unselected', () => {
     const mockData: File[] = [
       {name: 'firstfile.txt', device: 'Mac', path: '/Users/username/Downloads', status: 'available'},
