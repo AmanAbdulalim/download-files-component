@@ -1,46 +1,26 @@
-# Getting Started with Create React App
+## How to run
+1. Install npm packages with `npm install`.
+2. `npm run`. Once finished compiling, the terminal will show an address to access the application locally. Usually `http://localhost:3000` is shown.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Run tests
+1. `npm install` if packages haven't been installed yet.
+2. `npm test`.
 
-## Available Scripts
+## About this project
 
-In the project directory, you can run:
+### Technology decisions
+This repo contains a Create React App project in Typescript. For the sake of emphasizing HTML, CSS, and Javascript ability, no additional UI, styling, or utility libraries outside of those bundled with Create React App were used to build this project. At the time of submission, no errors or warnings are observed in terminal or the browser console.
 
-### `npm start`
+### Project Structure
+This project was structured as if the scope could increase beyond this assignment. Inside the `src` folder, a `features` folder exists to separate components, utilities, and more by concern. Components that can be shared across concerns are to be located in the `src` folder, but is not observed in this project since all work is related specifically to the download files feature.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Tests and CSS Modules are located in the same location as their cooresponding component. This does clutter the folder structure, but for a smaller project it makes tests and styles easer to browse and locate.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Styling
+CSS Modules were used for all styling. In the event of a larger scoped project, tools like SASS or Tailwind would be preferred. Also UI component libraries can be taken into consideration depending on the needs of the project. The provided screenshot was used as a baseline for the styling found in this project.
 
-### `npm test`
+### Testing
+A combination of unit and integration tests were written for this project. Integration tests are marked with an `@integration` tag. Many of the required functionality for this project has coverage, but because if time limitations, full coverage was not pursued.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Accessibility
+Chrome Lighthouse was used for a high level accessibility check, scoring 100 at the time of submission. In addition, WCAG guidelines were cross referenced. Given more time, a WCAG level compliance would be pursued.
